@@ -1,0 +1,16 @@
+# Fibonacci numbers by using the dynamic programing (python)
+# make Dp table
+d = [0] * 100
+# make function
+def fibonacci(x):
+    # set the conditions to break recursive function
+    if x == 1 or x == 2:
+        return 1
+    # once finished calculating, return from Dp table
+    if d[x] != 0:
+        return d[x]
+    # return result depening on the recurrence relation
+    d[x] = fibonacci(x-1) + fibonacci(x-2)
+    return d[x]
+
+print(fibonacci(4))
