@@ -1,0 +1,13 @@
+# Fibonacci numbers by using the dynamic programing (python) Bottom > Up
+# make Dp table
+d = [0] * 100
+# first and second fibonacci numbers are 1
+d[1] = 1
+d[2] = 1
+n = 4
+
+# Fibonacci numbers by using for loop 
+for i in range(3, n+1):
+    d[i] = d[i-1] + d[i-2]
+
+print(d[n])
