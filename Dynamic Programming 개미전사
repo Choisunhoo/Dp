@@ -1,0 +1,16 @@
+# 개미전사 
+# allow to input the integer 
+n = int(input())
+# allow to input the every data of food 
+food = list(map(int, input().split()))
+
+# make dynamic programming table
+Dp = [0] * 100 
+
+# progress dynamic programming (bottom > up)
+Dp[0] = food[0]
+Dp[1] = max(food[0],food[1])
+for i in range(2, n):
+    Dp[i] = max(Dp[i-1], Dp[i - 2] + food[i])
+
+print(Dp[n-1])
