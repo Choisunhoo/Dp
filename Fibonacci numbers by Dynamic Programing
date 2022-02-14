@@ -1,4 +1,4 @@
-# Fibonacci numbers by using the dynamic programing (python)
+# Fibonacci numbers by using the dynamic programing (python) / Top > Down
 # make Dp table
 d = [0] * 100
 # make function
