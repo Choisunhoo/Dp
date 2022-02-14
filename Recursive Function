@@ -1,0 +1,10 @@
+# Fibonacci numbers by using the recursive function (python)
+# make function 
+def fibonacci(x):  
+    # set the conditions to break recursive function
+    if x == 1 or x == 2: 
+        return 1  
+     # recursive function to get Fibonacci number
+    return fibonacci(x-1) + fibonacci(x-2) 
+
+print(fibonacci(4))
