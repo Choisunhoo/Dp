@@ -1,0 +1,19 @@
+# baekjoon 11055 가장 큰 증가하는 부분 수열
+
+# A 수열의 크기를 입력
+A = int(input())
+# list에 수열을 입력
+data = list(map(int, input().split()))
+# data에 입력된 수열과 같은 dp 테이블 생성
+dp = [i for i in data]
+
+
+
+# 점화식 데이터에 있는 수를 차례대로 데이터 보다 전에 있던 수보다 크면 dp에 입력 값을 변경
+for i in range(A):
+    for j in range(i):
+        if data[j] < data[i]:
+            dp[i] = max(dp[i], dp[j] + data[i])
+
+# dp 테이블 중에서 최대값인 가장 큰 증가하는 부분 수열을 출력
+print(max(dp))
