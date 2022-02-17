@@ -1,0 +1,36 @@
+# 병사 배치하기
+# 데이터의 개수를 입력 
+N = int(input())
+# 수열을 입력
+data = list(map(int, input().split()))
+# 다이나믹 프로그래밍을 위한 1차원 dp 테이블 초기화
+dp = [1] * (N)
+
+# 가장긴 감소하는 부분 수열 알고리즘 수행
+for i in range(1, N):
+    for j in range(i):
+        if data[i] < data[j]:
+            dp[i] = max(dp[i], dp[j]+1)
+
+# 열외하는 병사를 구하기 위해서 총병사에서 감소하는 병사의 최대수를 빼줌
+print(N-max(dp))
+
+
+# "최장 증가 부분 수열" 문제로 변환 해서 푸는 방법
+# 데이터의 개수를 입력 
+N = int(input())
+# 수열을 입력
+data = list(map(int, input().split()))
+# 순서를 뒤집아서 "최장 증가 부분 수열" 문제로 변환
+data.reverse()
+# 다이나믹 프로그래밍을 위한 1차원 dp 테이블 초기화
+dp = [1] * (N)
+
+# 가장긴 감소하는 부분 수열 알고리즘 수행
+for i in range(1, N):
+    for j in range(0,i):
+        if data[i] > data[j]:
+            dp[i] = max(dp[i], dp[j]+1)
+
+# 열외하는 병사를 구하기 위해서 총병사에서 감소하는 병사의 최대수를 빼줌
+print(N-max(dp))
